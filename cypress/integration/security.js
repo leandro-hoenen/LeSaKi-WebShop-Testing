@@ -31,5 +31,6 @@ describe('Security Tests ', () => {
         cy.get('#inputPassword').type(customer.password)
         cy.get('body > div > form > button').click()
         cy.get('#navcol-1 > ul > div:nth-child(2) > li > a').should('be.visible')
+        cy.get('#navcol-1 > ul > div:nth-child(4) > li > a').should('be.visible')
     })    
   })
