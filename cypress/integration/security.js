@@ -3,7 +3,7 @@
 describe('Security Tests ', () => {
     let customer
 
-    beforeEach(() => {
+    before(() => {
         cy.fixture('customer').then((customerData) => {
             customer = customerData
         })
