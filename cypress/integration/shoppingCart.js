@@ -26,7 +26,6 @@ describe('Shopping Cart Tests ', () => {
         cy.get('#addToShoppingCard').click()
         cy.visit('shopping-cart')
         cy.get('#shopping-cart').should('contain', product.name)
-
     })
 
 })
