@@ -1,0 +1,15 @@
+{
+    "first_name": {
+      "default": "Salvatore",
+      "updated": "Salvi"
+    },
+    "last_name": {
+      "default": "Trupia",
+      "updated": "Trupia"
+    },
+    "email": {
+      "default": "salvatore.trupia@outlook.com",
+      "updated": "salvatore@gmail.ch"
+    },
+    "password": "Password123"
+}
