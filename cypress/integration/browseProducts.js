@@ -2,6 +2,7 @@
 
 describe('Browsing through products ', () => {
     let existingCustomer
+    let baseURL = Cypress.config().baseUrl
 
     before(() => {
         cy.fixture('existingCustomer').then((customerData) => {
@@ -26,14 +27,19 @@ describe('Browsing through products ', () => {
         
     })
 
+
     it('Test button \"Entdecke alle Kategorien\"', () => {
         cy.visit('/')        
         cy.get('#category-button').contains('Entdecke alle Kategorien').click()
+        cy.url().should('eq', baseURL + 'products')
+
     })
     
     it('Test button \"Alle Artikel ansehen\"', () => {
         cy.visit('/')        
         cy.get('.btn-primary').contains('Alle').click()
+        cy.url().should('eq', baseURL + 'products/all')
+
     })
 
 })
