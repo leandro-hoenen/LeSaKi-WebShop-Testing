@@ -32,4 +32,10 @@ describe('Shopping Cart Tests ', () => {
         cy.get('#subtotal > p:nth-child(2)').should('have.text', 'CHF ' + totalPrice)
     })
 
+    it('Remove Product from shopping cart', () => {
+        cy.visit('shopping-cart')
+        cy.get('#shopping-cart > div > div.col-sm-8.col-xxl-7 > div > div.col.m-auto.align-items-lg-center > form > button').click()
+        cy.get('#shopping-cart').should('not.contain', product.name)
+    })
+
 })
