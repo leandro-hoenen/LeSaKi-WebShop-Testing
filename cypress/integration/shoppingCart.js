@@ -18,14 +18,18 @@ describe('Shopping Cart Tests ', () => {
     })
 
     it('Add Product to shopping cart', () => {
+        const totalPrice = (parseInt(product.order_quantity) * parseFloat(product.price)).toFixed(2)
         cy.visit(product.url)
-        cy.get('#product-id')
-            .should('have.value', product.order_quantity)
+        cy.get('#quantity')
             .clear()
             .type('3')
-        cy.get('#addToShoppingCard').click()
+        cy.get('button[type="submit"]').click()
         cy.visit('shopping-cart')
+        // Assertations
         cy.get('#shopping-cart').should('contain', product.name)
+        cy.get('#shopping-cart > div > div.col-sm-8.col-xxl-7 > div > div:nth-child(2) > p').should('have.text', 'CHF ' + product.price)
+        cy.get('#quantity-shopping-cart').should('have.text', product.order_quantity + ' Stück')
+        cy.get('#subtotal > p:nth-child(2)').should('have.text', 'CHF ' + totalPrice)
     })
 
 })
