@@ -40,8 +40,8 @@ describe('Shopping Cart Tests ', () => {
     })
 
     it('Add Coupon', () => {
-        let discountPrice = ((totalPrice - (totalPrice * parseFloat(coupon.value) / 100)).toFixed(2)).toString()
-        let discountList = discountPrice.split('.')
+        const discountPrice = ((totalPrice - (totalPrice * parseFloat(coupon.value) / 100)).toFixed(2)).toString()
+        const discountList = discountPrice.split('.')
         cy.visit('shopping-cart')
         cy.get('#coupon')
             .should('be.empty')
