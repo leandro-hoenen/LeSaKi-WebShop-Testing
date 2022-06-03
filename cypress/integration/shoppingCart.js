@@ -40,14 +40,13 @@ describe('Shopping Cart Tests ', () => {
     })
 
     it('Add Coupon', () => {
-        const discountPrice = ((totalPrice - (totalPrice * parseFloat(coupon.value) / 100)).toFixed(2)).toString()
-        const discountList = discountPrice.split('.')
+        const discountPrice = ((totalPrice - (totalPrice * parseFloat(coupon.value) / 100)).toFixed(2))
         cy.visit('shopping-cart')
         cy.get('#coupon')
             .should('be.empty')
             .type(coupon.code)
         cy.get('#coupon-code > button').click()
-        cy.get('#subtotal > p:nth-child(2)').should('have.text', 'CHF ' + discountList[0] + ',' + discountList[1])
+        cy.get('#subtotal > p:nth-child(2)').should('have.text', 'CHF ' + discountPrice)
     })
 
     it('Remove Product from shopping cart', () => {
