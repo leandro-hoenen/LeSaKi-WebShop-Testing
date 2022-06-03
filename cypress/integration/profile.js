@@ -27,20 +27,4 @@ describe('Profile Tests ', () => {
         cy.wait('@postProfileChange')
     })
 
-    it('login with new email and delete account', () => {
-        cy.login(existingCustomer.email.updated, existingCustomer.password)
-        cy.contains('Profil')
-        cy.visit('/profile')
-        cy.get('#delete-account').click()
-    })
-
-    it('checks if login is no longer possible after deletion with old and new details', () => {
-        cy.login(existingCustomer.email.default, existingCustomer.password)
-        cy.contains('Invalid username and password.')
-        cy.visit('/login')
-        cy.login(existingCustomer.email.updated, existingCustomer.password)
-        cy.contains('Invalid username and password.')
-
-    })
-
 })
